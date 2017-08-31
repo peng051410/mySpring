@@ -1,0 +1,15 @@
+@startuml
+
+abstract class Subject
+class ConcreteSubject
+
+interface Observer
+class ConcreteObserver
+
+Subject <|-- ConcreteSubject
+Observer <.. ConcreteObserver
+
+Subject "持有" -left-* Observer
+ConcreteObserver -right-o "subject" ConcreteSubject
+
+@enduml
