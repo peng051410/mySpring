@@ -5,7 +5,8 @@ import cn.imcompany.observer.Investor;
 public class ConcreteStockSubject extends StockSubject {
 
     @Override
-    public void update() {
+    public void notifyInvestor() {
+
         for (Investor investor : investors) {
             investor.reaction();
         }
