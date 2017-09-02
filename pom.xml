@@ -7,4 +7,9 @@
     <groupId>cn.imcompany</groupId>
     <artifactId>mySpring</artifactId>
     <version>1.0-SNAPSHOT</version>
+
+    <modules>
+        <module>spring-push</module>
+        <module>spring-core-study</module>
+    </modules>
 </project>
