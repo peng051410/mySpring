@@ -10,4 +10,5 @@ public class LDOrder {
     private int id;
     private int amount;
     private String desc;
+    private String owner;
 }

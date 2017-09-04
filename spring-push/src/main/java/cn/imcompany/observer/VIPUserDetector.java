@@ -7,6 +7,7 @@ import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
+import java.lang.invoke.MethodHandles;
 
 @Component
 public class VIPUserDetector {
@@ -15,12 +16,9 @@ public class VIPUserDetector {
     private VipUserService vipUserService;
 
     @EventListener(condition = "#order.amount > 500")
-    public void handleOrder(LDOrder order) {
+    public User handleOrder(LDOrder order) {
 
-        System.out.println("来订单了" + order);
-        User user = new User();
-        user.setName("lzp");
-        user.setVip(true);
-        vipUserService.addVip(user);
+        System.out.println(MethodHandles.lookup().lookupClass() + "说：来了一个大订单" + order);
+        return vipUserService.generateVip(order);
     }
 }

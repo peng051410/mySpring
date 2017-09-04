@@ -1,19 +1,20 @@
 package cn.imcompany.service;
 
+import cn.imcompany.model.LDOrder;
 import cn.imcompany.model.User;
-import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
+import java.lang.invoke.MethodHandles;
 
 @Service
 public class VipUserService {
 
-    @Resource
-    private ApplicationEventPublisher publisher;
+    public User generateVip(LDOrder order) {
 
-    public void addVip(User user) {
-        System.out.println("新的vip产生了,它是:" + user.getName());
-        publisher.publishEvent(user);
+        System.out.println(MethodHandles.lookup().lookupClass() + "说：我们系统多了一个VIP用户");
+        User user = new User();
+        user.setName(order.getOwner());
+        user.setVip(true);
+        return user;
     }
 }
