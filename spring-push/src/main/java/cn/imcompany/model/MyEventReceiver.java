@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class MyEventReceiver {
 
-    @EventListener
+    @EventListener(value = {MyEvent.class, MyEvent2.class})
     public void handleEvent(Object o) {
         System.out.println("收到了事件 " + o);
     }

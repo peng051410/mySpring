@@ -1,5 +1,6 @@
-package cn.imcompany.model;
+package cn.imcompany.sender;
 
+import cn.imcompany.model.MyEvent;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Component;
 

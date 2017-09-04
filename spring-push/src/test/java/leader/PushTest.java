@@ -1,10 +1,10 @@
 package leader;
 
-import cn.imcompany.model.MyEventReceiver;
-import cn.imcompany.model.MyEventSender;
+import cn.imcompany.model.LDOrder;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -22,16 +22,24 @@ public class PushTest {
     private String username;
 
     @Resource
-    private MyEventSender sender;
+    private ApplicationEventPublisher publisher;
 
-    @Resource
-    private MyEventReceiver receiver;
 
     @Test
     public void testPushMe() {
 
-        System.out.println(username);
-        sender.createEvent();
+        System.out.println("网站火爆，订单来了");
+        LDOrder ldOrder = new LDOrder();
+        ldOrder.setId(1);
+        ldOrder.setAmount(30);
+        ldOrder.setDesc("先来个小单");
+        publisher.publishEvent(ldOrder);
+
+        LDOrder ldBigOrder = new LDOrder();
+        ldBigOrder.setId(1);
+        ldBigOrder.setAmount(5000);
+        ldBigOrder.setDesc("再来个大单吧");
+        publisher.publishEvent(ldBigOrder);
     }
 
 }
