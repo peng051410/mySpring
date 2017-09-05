@@ -102,7 +102,11 @@
             <scope>provided</scope>
         </dependency>
 
-
+        <dependency>
+            <groupId>org.atteo.classindex</groupId>
+            <artifactId>classindex</artifactId>
+            <version>3.3</version>
+        </dependency>
     </dependencies>
 
     <build>
