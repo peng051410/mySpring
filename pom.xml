@@ -12,6 +12,5 @@
     <modules>
         <module>spring-push</module>
         <module>spring-core-study</module>
-        <module>springpush</module>
     </modules>
 </project>
